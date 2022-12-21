@@ -6,7 +6,7 @@
 
 > Протестировано на Windows 10 и Windows Server 2016 DC. Для корректного отображения вывода, необходимо использовать английскую локализацию.
 
-![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Image/Interface%201.4.jpg)
+![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Image/Interface-1.4.jpg)
 
 Список серверов можно вызвать из программы нажатием правой кнопки мыши в списке серверов или комбинацией клавиш Ctrl+S (создается автоматически).
 
@@ -62,6 +62,8 @@
 * Список установленных драйверов.
 * Удаленная проверка, а так же включение/отключение rdp и nla. 
 * Список установленных программ с возможностью удаления. Используется два метода: get-packet и gwmi.
+
+![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Image/Software.jpg)
 
 * **Инвентаризация комплектующих** - модель процессора, мат. платы, видеокарты, оперативной памяти, модель дисков, с конвертацией в HTML-файл:
 
