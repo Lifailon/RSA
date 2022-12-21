@@ -20,6 +20,9 @@
 * Внесение изменений в интерфейс: увеличин размер формы и заменены иконки, на системные (import dll system32)
 * Переработан вывод команд в DGV. В меню добавлен поиск (сортировка) для служб и процессов, а так же для статусов служб и процессов с тригерными показателями выше 100мб ОЗУ и 10 ЦП выделяется цветом.
 
+![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Image/Services.jpg)
+![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Image/Process.jpg)
+
 ## Обновление 1.3.2
 * После внесения изменений в список серверов, для обновления списка из самой программы добавлена кнопка Обновить (Файл - Обновить, при нажатии правой кнопки мыши в списке, или сочетанием клавиш Ctrl+R).
 * Добавлена возможность заполнить список серверов всеми компьютерами в домене (Ctrl+D).
@@ -38,7 +41,7 @@
 
 **Заимствованные:** TCP Viewer (источник: [winitpro](https://winitpro.ru/index.php/2021/01/25/get-nettcpconnection-powershell-nestat)) - производит resolve FQDN для всех удаленных адресов и через Get-Process по ID определяет path исполняемого процесса. Подключение к Connection Broker (требуется установленный модуль RemoteDesktop) с возможностью Shadow-подключения к пользователю. Wake on Lan (источник: [coolcode](https://coolcode.ru/wake-on-lan-and-powershell)) - формирование Magic Packet c отправкой broadcast (MAC-адрес берется из формы ввода сообщения). Проверка свободного места на разделах дисков (источник: [fixmypc](https://fixmypc.ru/post/kak-uznat-v-powershell-svobodnoe-mesto-na-diske)) и по аналогии ОЗУ.
 
-![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Disk.jpg)
+![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Image/Disk.jpg)
 
 ## **Собственные реализации:**
 
@@ -52,19 +55,17 @@
 * Незамедлительно синхронизировать время на удаленном сервере с источником. 
 * Изменить на удаленном сервере источник времени на ближайший DC в подсети.
 
-![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Times.jpg)
+![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Image/Times.jpg)
 
 ### **WMI:** 
 * Просмотр списка обновлений (при нажатии кнопки ок, номер обновления копируется в буфер обмена). В связи с тем, что более не поддерживается удаление обновлений через WUSA в тихом режиме, используется в связке с DISM online (специально оставил отдельной вкладкой, можно автоматизировать сразу процесс удаления и/или отпарсить вывод dism для реализации полноценной таблицы).
 * Список установленных драйверов.
 * Удаленная проверка, а так же включение/отключение rdp и nla. 
-* Список установленных программ с возможностью удаления. Используется два метода: get-packet и gwmi. Пример:
-
-![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Programs.jpg)
+* Список установленных программ с возможностью удаления. Используется два метода: get-packet и gwmi.
 
 * **Инвентаризация комплектующих** - модель процессора, мат. платы, видеокарты, оперативной памяти, модель дисков, с конвертацией в HTML-файл:
 
-![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Report.jpg)
+![Image alt](https://github.com/Lifailon/Remote-Shadow-Administrator/blob/rsa/Image/Report.jpg)
 
 * **Установка программ**. Через install-package (сейчас используется этот вариант в меню: WMI - Установка) и 2 метода gwmi (function wmi-installer). В первом случае установка происходит не на всех серверах (не зависимо от использования версии TLS), в случае с wmi установка происходит из unc-пути только на тот же сервер, где лежит msi-пакет (в т.ч. через invoke session и предварительной аутентификацией на удаленной машине, директория через icm доступна по пути).
 
