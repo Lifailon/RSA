@@ -1,3 +1,0 @@
-localhost
-test-srv1
-test-srv2
