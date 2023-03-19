@@ -5,6 +5,6 @@
 - [🙌 Contributing](#-contributing)
 - [🌎 Roadmap](#-roadmap)
 
-**[🚀 Скачать (RSA.exe)](https://github.com/Lifailon/RSA/releases)**.
+**[🚀 Скачать (RSA.exe)](https://github.com/Lifailon/RSA/releases)**
 
 ![Image alt]()
