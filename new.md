@@ -28,10 +28,10 @@
 
 При выборе сервера и нажатии кнопки **Query** отображается список текущих пользователей в виде таблицы, предварительно **проверяется доступность хоста (ping) и WinRM а так же uptime с выводом в status bar**. Для изменения списка компьютеров в меню выбрать **File - List Change** (Ctrl+S), для обновления списка - **List Update** (Ctrl+R). При выборе пользователя, можно произвести четыре действия: **Connect (Shadow-подключение)** с возможностью запроса на подключение и без (последнее удобно настраивается через GPO), **отключение пользователя (выход из системы)**, **отображение списка запущенных процессов пользователя с возможность их завершения** (правкой кнопкой мыши по выбранному процессу - **Stop Process**) и **отправка набранного сообщения** всем пользователям на сервере или выбранному в таблице. Есть возможность заполнить список серверов **компьютерами AD (Ctrl+D)** а так же вывести список в формате таблицы (Ctrl+T) с возможность сортировки и взаимодействия с выбранным компьютером.
 
-<a href=""><img src="" width="400"/></a>
-<a href=""><img src="" width="400"/></a>
-<a href=""><img src="" width="400"/></a>
-<a href=""><img src="" width="400"/></a>
+<a href="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Interface-1.4.1.jpg"><img src="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Interface-1.4.1.jpg" width="400"/></a>
+<a href="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Services.jpg"><img src="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Services.jpg" width="400"/></a>
+<a href="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/LD.jpg"><img src="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/LD.jpg" width="400"/></a>
+<a href="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Time%2BLic%2BUpdate.jpg"><img src="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Time%2BLic%2BUpdate.jpg" width="400"/></a>
 
 Для подключение к серверу через rdp используется mstsc с ключем /admin, что позволяет подключаться к RDSH-серверу минуя Broker. **Для аутентификации используется cmdkey**, после прохождения единоразовой аутентификации (File - Authentication), используется предварительная аутентификация на все сервера в списке и действует до закрытия программы, что **позволяет не хранить пароль администратора в коде, а так же хранилище ключей ОС (которые можно скомпрометировать)**.
 
