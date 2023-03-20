@@ -20,7 +20,7 @@
 
 * **[Get-Query](https://github.com/Lifailon/Get-Query)** - используется для парсинга программы **query.exe с выводом в PSObject**, с целью отображения текущих сессий и запущенных пользовательских процессов на компьютере (версия 1.2).
 
-* **[Get-Query-Network](https://github.com/Lifailon/Get-Query-Network)** модуль для поиска пользователей в сети.
+* **[Get-Query-Network](https://github.com/Lifailon/Get-Query-Network)** - модуль для поиска пользователей в сети.
 
 * **[Get-Invent](https://github.com/Lifailon/Get-Invent-SQLite)** - используется для сбора данных об оборудовании на удаленном компьютере с выводом развернутого отчета в HTML-файл (версия 1.1).
 
