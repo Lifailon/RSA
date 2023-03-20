@@ -28,3 +28,8 @@
 * **[RSA-Modules](https://github.com/Lifailon/RSA-Modules)** - сборник некоторых функций, которые я выделил в отдельные модули.
 
 ## 📘 Функционал
+
+<a href=""><img src="" width="400"/></a>
+<a href=""><img src="" width="400"/></a>
+<a href=""><img src="" width="400"/></a>
+<a href=""><img src="" width="400"/></a>
