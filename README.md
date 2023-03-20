@@ -3,7 +3,7 @@
 [![PowerShell](https://github.com/Lifailon/RSA/blob/rsa/Image/Logo/PowerShell-Button.ico)](https://github.com/PowerShell/PowerShell) \
 [![Telegram @kup57](https://github.com/Lifailon/RSA/blob/rsa/Image/Logo/Telegram-Button.ico)](https://t.me/kup57)
 
-- [💡 Цель](#-Описание)
+- [💡 Описание](#-Описание)
 - [📦 Модули](#-Модули)
 - [📘 Функционал](#-Функционал)
 - [🔔 Дополнения](#-Дополнения)
