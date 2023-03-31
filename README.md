@@ -1,6 +1,7 @@
 # <img src="https://github.com/Lifailon/RSA/blob/rsa/Image/ico/RSA-Logo.ico" width="25" /> RSA (Remote Shadow Administrator)
 
-[![RSA](https://img.shields.io/github/v/release/lifailon/rsa)](https://github.com/Lifailon/RSA/releases) [![RSA](https://img.shields.io/github/last-commit/lifailon/rsa)](https://github.com/Lifailon/RSA) [![RSA](https://img.shields.io/github/downloads/lifailon/rsa/total)](https://github.com/Lifailon/RSA) [![RSA](https://img.shields.io/github/v/release/lifailon/rsa?label=Telegram&logo=Telegram&style=social)](https://github.com/Lifailon/RSA/releases)
+[![RSA](https://img.shields.io/github/v/release/lifailon/rsa)](https://github.com/Lifailon/RSA/releases) [![RSA](https://img.shields.io/github/last-commit/lifailon/rsa)](https://github.com/Lifailon/RSA) [![RSA](https://img.shields.io/github/downloads/lifailon/rsa/total)](https://github.com/Lifailon/RSA) \
+[![RSA](https://img.shields.io/github/v/release/lifailon/rsa?label=Telegram&logo=Telegram&style=social)](https://github.com/Lifailon/RSA/releases)
 
 - [💡 Описание](#-Описание)
 - [📦 Модули](#-Модули)
