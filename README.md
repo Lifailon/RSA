@@ -1,7 +1,7 @@
 # <img src="https://github.com/Lifailon/RSA/blob/rsa/Image/ico/RSA-Logo.ico" width="25" /> RSA (Remote Shadow Administrator)
 
 [![Telegram @kup57](https://github.com/Lifailon/RSA/blob/rsa/Image/Logo/Telegram-Button.ico)](https://t.me/kup57) \
-[![PowerShell](https://github.com/Lifailon/RSA/blob/rsa/Image/Logo/PowerShell-Button.ico)](https://github.com/PowerShell/PowerShell)
+[![PowerShell](https://github.com/Lifailon/RSA/blob/rsa/Image/Logo/PowerShell-Button.ico)](https://github.com/PowerShell/PowerShell) \
 [![RSA](https://img.shields.io/github/v/release/lifailon/rsa)](https://github.com/Lifailon/RSA/releases)
 
 - [💡 Описание](#-Описание)
