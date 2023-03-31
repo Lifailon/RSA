@@ -2,7 +2,9 @@
 
 [![Telegram @kup57](https://github.com/Lifailon/RSA/blob/rsa/Image/Logo/Telegram-Button.ico)](https://t.me/kup57) \
 [![PowerShell](https://github.com/Lifailon/RSA/blob/rsa/Image/Logo/PowerShell-Button.ico)](https://github.com/PowerShell/PowerShell) \
-[![RSA](https://img.shields.io/github/v/release/lifailon/rsa)](https://github.com/Lifailon/RSA/releases)
+[![RSA](https://img.shields.io/github/v/release/lifailon/rsa)](https://github.com/Lifailon/RSA/releases) \
+[![RSA](https://img.shields.io/github/last-commit/lifailon/rsa)](https://github.com/Lifailon/RSA) \
+[![RSA](https://img.shields.io/github/downloads/lifailon/rsa/total)](https://github.com/Lifailon/RSA)
 
 - [💡 Описание](#-Описание)
 - [📦 Модули](#-Модули)
