@@ -1,76 +1,61 @@
-# <img src="https://github.com/Lifailon/RSA/blob/rsa/Image/ico/RSA-Logo.ico" width="25" /> RSA (Remote Shadow Administrator)
+<h1 align="center">
+    <img src="Image/ico/RSA-Logo.ico" width="25" /> RSA (Remote Shadow Administrator)
+</h1>
 
-[![RSA](https://img.shields.io/github/v/release/lifailon/rsa)](https://github.com/Lifailon/RSA/releases) [![RSA](https://img.shields.io/github/last-commit/lifailon/rsa)](https://github.com/Lifailon/RSA) [![RSA](https://img.shields.io/github/downloads/lifailon/rsa/total)](https://github.com/Lifailon/RSA) \
-[![RSA](https://img.shields.io/github/v/release/lifailon/rsa?label=Telegram&logo=Telegram&style=social)](https://t.me/kup57)
+<h4 align="center">
+    <strong>English</strong> | <a href="README_RU.md">Русский</a>
+</h4>
 
-- [💡 Описание](#-Описание)
-- [📦 Модули](#-Модули)
-- [📘 Функционал](#-Функционал)
-- [🔔 Дополнения](#-Дополнения)
+GUI for managing connections to current `RDP` sessions via **Shadow connections**, and also contains a set of functions for remote interaction with the Windows operating system and automation of the administration process.
 
-**[🚀 Скачать (RSA.exe)](https://github.com/Lifailon/RSA/releases)**
+Can be used as an alternative to remote connection tools such as [Radmin](https://www.radmin.com) or [TightVNC](https://www.tightvnc.com), which require client-server software installation. Written in Windows PowerShell using [Windows Forms](https://en.wikipedia.org/wiki/Windows_Forms), does not contain module dependencies. Tested on Windows Server 2016, 2019 DC and Windows 10 Pro systems in Russian and English localizations.
 
-## 💡 Описание
+**[🚀 Download RSA.exe](https://github.com/Lifailon/RSA/releases/latest)**
 
-Программа для подключения к текущим RDP-сессиям по средствам **Shadow-подключения**. Так же содержит набор модулей, направленного на автоматизацию удаленного администрирования и взаимодействия с ОС Windows.
+When you select a server and click the `Query` button, a list of current users is displayed in the form of a table. The host's availability is preliminarily checked by means of `ping` and `WinRM`, as well as `uptime` with output to the status bar. To change the list of computers, select **File - List Change** (`Ctrl+S`) in the menu, and to update the list **List Update** (`Ctrl+R`). When selecting a user, four actions can be performed: **Connect** (Shadow connection) with the ability to request a connection and without (the latter is conveniently configured via `GPO`), disconnecting the user (logging out of the system), displaying a list of running user processes with the ability to terminate them (by editing the mouse button on the selected process - **Stop Process**) and sending the typed message to all users on the server or selected in the table. It is possible to fill the list of servers with **AD computers** (`Ctrl+D`) and also to display the list in table format (`Ctrl+T`) with the ability to sort and interact with the selected computer.
 
-Можно использовать как альтернативное средство для удаленного подключения, таким как Radmin или VNC, которые требуют установки программного обеспечения по модели клиент-сервер. **Используется 100% кода на PowerShell и Windows Forms (без использования Toolbox)**, не содержит зависимостей в виде модулей. Протестировано на Windows Server 2016-2019 DC и Windows 10 Pro, не зависит от локализации ОС.
+<a href="Image/Screen/Interface-1.4.1.jpg"><img src="Image/Screen/Interface-1.4.1.jpg" width="400"/></a>
+<a href="Image/Screen/Services.jpg"><img src="Image/Screen/Services.jpg" width="400"/></a>
+<a href="Image/Screen/LD.jpg"><img src="Image/Screen/LD.jpg" width="400"/></a>
+<a href="Image/Screen/Time%2BLic%2BUpdate.jpg"><img src="Image/Screen/Time%2BLic%2BUpdate.jpg" width="400"/></a>
 
-## 📦 Модули
+To connect to the server via `RDP`, `mstsc` is used with the `/admin` key, which allows you to connect to the `RDSH` server bypassing the Broker for distributing connections. `cmdkey` is used for authentication, after passing a one-time authentication (`File` - `Authentication`), preliminary authentication occurs for all servers in the list and is valid until the program is closed, which allows you not to store the administrator password in the code, as well as the OS key storage (which can be compromised).
 
-* **[Get-Query](https://github.com/Lifailon/Get-Query)** - используется для парсинга программы **query.exe с выводом в PSObject**, с целью отображения текущих сессий и запущенных пользовательских процессов на компьютере (версия 1.2).
+## Add-ons
 
-* **[Get-Query-Network](https://github.com/Lifailon/Get-Query-Network)** - модуль для поиска пользователей в сети.
+- **Admin - Services** - displays a list of services on a local or remote computer with the ability to restart and stop them.
+- **Admin - All Remote User Process** - is used to display a list of all user processes with the ability to stop them.
+- **Admin & WMI - Software** - displays a list of installed software with the ability to remove it
+- **WMI - Windows Update** - displays a list of updates with further search by `HotFixID` in `DISM Packages` and removal.
+- **Admin - SMB Open Files** - displays a list of network resources used by users on the network with the ability to close their sessions.
+- **Admin - Get-Netstat** - displays a list of listening and established TCP connections with conversion of the remote host name (`nslookup`) and the process used.
+- **Admin - Get-RemoteDNS** - used to remotely view on a `DC` (does not require installation of the module from the `RSAT`) the list of all `DNS` zones and child records of the selected zone with the ability to delete the selected record.
+- **Admin - GPUpdate** - updating group policies on a remote computer.
+- **Admin - GPResult** - generating a summary report on the results of group policies in `HTML` format for the specified user on the selected host.
+- **Power - Reboot & Power Off** - reboot or power off the host with a 60-second delay.
+- **Power - Screen lock & Sleep mode** - enabling/disabling screen lock and sleep mode on a remote computer.
+- **Power - Get-ARP & Get-DHCP** - used to find the MAC address of a turned off computer in order to turn it on using `WOL` (Wake-on-Lan).
+- **Event** - power logs and five event logs for session analysis (connections and disconnections).
+- **Broker** - automation of cmdlets for interaction with the `RDSH` farm.
+- **WMI - Logical Disk & Memory** - displays the total and available volume of local disks and RAM.
+- **WMI - Drivers** - display a list of drivers.
+- **WMI - File Share** - a list of public resources on the host (directories or printers).
+- **WMI - Power RDP & Power NLA** - checks the status of `RDP` (Remote Desktop Protocol) and `NLA` (Network Level Authentication) on a remote host with the ability to enable and disable.
+- **WMI - Setup** - installing software on a remote computer (via `install-package` or `WMI`).
 
-* **[Get-Invent](https://github.com/Lifailon/Get-Invent-SQLite)** - используется для сбора данных об оборудовании на удаленном компьютере с выводом развернутого отчета в HTML-файл (версия 1.1).
+### Scripts for synchronizing computer clocks (w32tm)
 
-* **[RSA-Modules](https://github.com/Lifailon/RSA-Modules)** - сборник некоторых функций, которые я выделил в отдельные модули.
+- Displays the current time on the server and the difference with the source server.
+- Find out the time source, as well as the frequency and time of the last synchronization (the latter is displayed depending on the language pack on the remote machine).
+- Check the server as a time source.
+- Change the time source on the remote server to the nearest `DC` (with the `PDC` role) in the subnet.
+- Change to an external time source (for example, `ru.pool.ntp.org`).
+- Immediately synchronize the time on the remote server with the source.
 
-## 📘 Функционал
+### Scripts for activating corporate licenses in the network (KMS)
 
-При выборе сервера и нажатии кнопки **Query** отображается список текущих пользователей в виде таблицы, предварительно **проверяется доступность хоста (ping) и WinRM а так же uptime с выводом в status bar**. Для изменения списка компьютеров в меню выбрать **File - List Change** (Ctrl+S), для обновления списка - **List Update** (Ctrl+R). При выборе пользователя, можно произвести четыре действия: **Connect (Shadow-подключение)** с возможностью запроса на подключение и без (последнее удобно настраивается через GPO), **отключение пользователя (выход из системы)**, **отображение списка запущенных процессов пользователя с возможность их завершения** (правкой кнопкой мыши по выбранному процессу - **Stop Process**) и **отправка набранного сообщения** всем пользователям на сервере или выбранному в таблице. Есть возможность заполнить список серверов **компьютерами AD (Ctrl+D)** а так же вывести список в формате таблицы (Ctrl+T) с возможность сортировки и взаимодействия с выбранным компьютером.
-
-<a href="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Interface-1.4.1.jpg"><img src="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Interface-1.4.1.jpg" width="400"/></a>
-<a href="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Services.jpg"><img src="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Services.jpg" width="400"/></a>
-<a href="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/LD.jpg"><img src="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/LD.jpg" width="400"/></a>
-<a href="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Time%2BLic%2BUpdate.jpg"><img src="https://github.com/Lifailon/RSA/blob/rsa/Image/Screen/Time%2BLic%2BUpdate.jpg" width="400"/></a>
-
-Для подключение к серверу через rdp используется mstsc с ключем /admin, что позволяет подключаться к RDSH-серверу минуя Broker. **Для аутентификации используется cmdkey**, после прохождения единоразовой аутентификации (File - Authentication), используется предварительная аутентификация на все сервера в списке и действует до закрытия программы, что **позволяет не хранить пароль администратора в коде, а так же хранилище ключей ОС (которые можно скомпрометировать)**.
-
-## 🔔 Дополнения
-
-* **Admin - Services** - выводит списка служб на локальном или удаленном компьютере с возможность их запуска/перезапуска и остановки.
-* **Admin - All Remote User Process** - используется для отображения списка всех пользовательских процессов с возможность их остановки.
-* **Admin & WMI - Software** - выводит список установленного программного обспечения с возможность его удаления
-* **WMI - Windows Update** - вывода списка обновлений с дальнейшим поиском по **HotFixID в DISM Packages** и удалением.
-* **Admin - SMB Open Files** - отображение списка используемых сетевых сесурсов пользователями в сети с возможность закрытия их сессии.
-* **Admin - Get-Netstat** - вывод списка слушающих и установленных TCP-соединений с преобразованием имени удаленного хоста (nslookup) и используемого процесса.
-* **Admin - Get-RemoteDNS** - используется для удаленного просмотра на DC (не требует установки модуля из состава RSAT) списка всех DNS зон и дочерних записей выбранной зоны с возможностью удаления выбранной записи.
-* **Admin - GPUpdate** - обновление групповых политик на удаленном компьютере.
-* **Admin - GPResult** - составление сводного отчёта по результатам групповых политик в формате HTML для указанного пользователя на выбранном хосте.
-* **Power - Reboot & Power Off** - перезагрузка или выключение хоста с задержкой 60 секунд.
-* **Power - Screen lock & Sleep mode** - включение/отключение блокировки экрана и спящего режима на удаленном компьютере.
-* **Power - Get-ARP & Get-DHCP** - используются для поиска MAC-адреса выключенного компьютера с целью его включения с помощью **Wake-on-Lan**.
-* **Event** - логи питания (Power) и пять журналов событий для анализа подключений/отключений сессий.
-* **Broker** - автоматизация командлетов взаимодействия с RDSH-фермой.
-* **WMI - Logical Disk & Memory** - выводит общий и доступный объём локических дисков и оперативной памяти.
-* **WMI - Drivers** - отобразить список драйверов.
-* **WMI - File Share** - список общедоступных ресурсов на хосте (директорий или принтеров).
-* **WMI - Power RDP & Power NLA** - проверяет статус Remote Desktop Protocol и Network Level Authentication на удаленно хосте с возможность включения и отключения.
-> **WMI - Setup** - установка программного обеспечения на удаленный компьютер. Через install-package (сейчас используется этот вариант) и два метода через WMI. В первом случае установка происходит не на всех серверах (не зависимо от использования версии TLS), в случае с wmi установка происходит из UNC-пути только на тот же сервер, где лежит msi-пакет (в т.ч. через invoke session с предварительной аутентификацией на удаленной машине, где директория доступна по пути через icm).
-
-### Скрипты по синхронизации компьютерных часов (w32tm).
-* Отображает текущее время на сервере и разницу с сервером источника (localhost).
-* Узнать источник времени, а так же частоту и время последней синхронизации (последнее отображается в зависимости от языкового пакета на удаленной машине).
-* Проверка сервера как источника времени.
-* Изменить на удаленном сервере источник времени на ближайший DC (с ролью PDC) в подсети.
-* Изменить на внешний источник времени (например: ru.pool.ntp.org).
-* Незамедлительно синхронизировать время на удаленном сервере с источником.
-
-### Скрипты по активации корпоративных лицензий в сети (KMS).
-* Узнать редакцию и версию ОС, канал получения лицензии, тип ключа, статус активации и сервер лицензирования.
-* Узнать адрес KMS-сервера в сети по srv-записи.
-* GVLK-активатор. Содержит публичные ключи GVLK (Generic Volume License Key) с возможностью удаленной активации.
-* Указать в ручную KMS-сервер (например, если KMS-сервер не опубликован в DNS).
-* Запросить (обновить) лицензию с  KMS-сервера.
-
+- Find out the OS edition and version, license acquisition channel, key type, activation status and licensing server.
+- Find out the address of the KMS server in the network by srv record.
+- `GVLK` activator. Contains public keys `GVLK` (Generic Volume License Key) with the ability to activate remotely.
+- Manually specify the KMS server (for example, if the KMS server is not published in DNS).
+- Request (update) the license from the KMS server.
